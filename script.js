@@ -21,9 +21,7 @@
   
 */
 
-var config = {
-  API_KEY : '518d0d1bf8dba422852add942b89ffa5'
-}
+var API_KEY = config.API_KEY
 
 var button = document.getElementById("btn");
 button.addEventListener("click", search);
@@ -36,7 +34,7 @@ function search(){
 function getWeatherData(city){
 
   //https://www.w3schools.com/js/js_api_fetch.asp
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${config.API_KEY}`)
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${API_KEY}`)
   .then(response => response.json())
   .then(data => {
     
