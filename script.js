@@ -1,31 +1,7 @@
 /*
-  Author: <Your Name>
-  Date: <Submission Date>
-  MGT 3745 B Fall 2021
-  Homework 4
-
-1. Using the definition as described in The Lean Product Playbook (Links to an external site.), describe the purpose, basic structure, and an example of a product user story. If more information is needed, imagine deriving a user story for an existing feature within a web browser (e.g., Google Chrome, Microsoft Edge, Mozilla Firefox, Brave Browser)
-
-User stories are a way to describe a feature set that makes sure the benefit to a direct group of customers remains clear. The basic structure is 
-
-As a [type of user]
-I want to [do something]
-so that I can [desired benefit]
-
-an example would be
-
-As a student
-I want canvas to send me an alert if an upcoming assignment has no submission
-so that I can not forget to turn stuff in 
-
-
-2. Name one difference between product and marketing MVP tests and one difference between quantitative and qualitative MVP tests.
-
-Product mvp tests have some level of functionality for customers to see or try out where marketing mvp tests describe the functionality of the product to guage customer interest.
-
-Quantitative mvp tests involve collecting data from a large testing group, without focus on any individual user experiences. Qualitative mvps tests use direct feedbeack from a smaller group of testers who can share the details of their experience. 
-
-
+  Author: Jordan Flagg
+  Date: October 2021
+  
   Scenario: You've been selected to produce an interactive prototype that is able to take in user input and append results to the screen.
 
   Directions: Without editing the index.html page, write code in the script.js file which will:
@@ -42,9 +18,12 @@ Quantitative mvp tests involve collecting data from a large testing group, witho
   Icons: https://openweathermap.org/weather-conditions
   Postman: https://www.postman.com/downloads/
 
-  https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=518d0d1bf8dba422852add942b89ffa5
+  
 */
 
+var config = {
+  API_KEY : '518d0d1bf8dba422852add942b89ffa5'
+}
 
 var button = document.getElementById("btn");
 button.addEventListener("click", search);
@@ -57,7 +36,7 @@ function search(){
 function getWeatherData(city){
 
   //https://www.w3schools.com/js/js_api_fetch.asp
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=518d0d1bf8dba422852add942b89ffa5`)
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${config.API_KEY}`)
   .then(response => response.json())
   .then(data => {
     
